@@ -13,27 +13,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-
-const databaseUrl = "workoutDB";
-const collections = ["workoutSeed"];
-
+app.use(require("./routes/routes.js"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutDB", { useNewUrlParser: true });
 
-app.get("/", (req, res) => {
-    res.send("Testing out my workout application");
-  });
-  
+var routes = require("./controllers/workoutController.js");
+app.use(routes);
 
-app.get("/exercise", (req, res) => {
-    db.workoutSeed.find()({
-    }, (err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.json(data);
-      }
-    });
-  });
 
   // Set the app to listen on port 3000
 app.listen(3000, () => {
