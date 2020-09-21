@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(require("./routes/apiRoutes.js"));
 app.use(require("./routes/routes.js"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnessTracker", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Workout", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
