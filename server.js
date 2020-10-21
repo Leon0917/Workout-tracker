@@ -16,7 +16,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useUnifiedTopology: true
 });
 
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose connection have been made");
 
+} )
 // Set the app to listen on port 3000
 app.listen(PORT, () => {
   console.log("Server listening on: http://localhost:" + PORT);
