@@ -24,7 +24,7 @@ const WorkoutSchema = new Schema({
     }
   ],
   date:{
-    type:Date,
+    type: Date, default: Date.now
      }
 });
 
